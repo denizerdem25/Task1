@@ -4,7 +4,7 @@ public class Calc {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         int ch = menu();
-
+        boolean hasRes = true;
         double num1, num2 = 0, res = 0;
         while (ch != 7) {
             switch (ch) {
@@ -36,9 +36,9 @@ public class Calc {
                     num2 = sc.nextDouble();
                     if(num2 != 0){
                       res = num1 / num2;
-                    System.out.println("Result : " + res + "\n");
                     }
                     else{
+                        hasRes = false;
                         System.out.println("Division by 0!!\n" );
                     }
                     break;
@@ -47,9 +47,9 @@ public class Calc {
                     num1 = sc.nextDouble();
                     if(num1 >= 0){
                         res = Math.sqrt(num1);
-                        System.out.println("Result : " + res + "\n");
                     }
                     else{
+                        hasRes = false;
                         System.out.println("Cannot take the square root of a negative number!!\n" );
                     }
                     break;
@@ -61,9 +61,10 @@ public class Calc {
                     res = Math.pow(num1, num2);
                     break;
             }
-            if(ch != 4 && ch != 5)
+            if(hasRes)
                 System.out.println("Result : " + res + "\n");
             ch = menu();
+            hasRes = true;
         }
     }
 
