@@ -34,16 +34,24 @@ public class Calc {
                     num1 = sc.nextDouble();
                     System.out.print("Enter number 2: ");
                     num2 = sc.nextDouble();
-                    if(num2 != 0)
+                    if(num2 != 0){
                       res = num1 / num2;
+                    System.out.println("Result : " + res + "\n");
+                    }
                     else{
-                        System.out.println("Result : Division by 0!!\n" );
+                        System.out.println("Division by 0!!\n" );
                     }
                     break;
                 case 5:
                     System.out.print("Enter number: ");
                     num1 = sc.nextDouble();
-                    res = Math.sqrt(num1);
+                    if(num1 >= 0){
+                        res = Math.sqrt(num1);
+                        System.out.println("Result : " + res + "\n");
+                    }
+                    else{
+                        System.out.println("Cannot take the square root of a negative number!!\n" );
+                    }
                     break;
                 case 6:
                     System.out.print("Enter number 1: ");
@@ -53,7 +61,7 @@ public class Calc {
                     res = Math.pow(num1, num2);
                     break;
             }
-            if((ch == 4 && num2 != 0 )|| (ch != 4))
+            if(ch != 4 && ch != 5)
                 System.out.println("Result : " + res + "\n");
             ch = menu();
         }
